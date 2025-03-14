@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인터랙티브 웹페이지</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #ff7e5f;
+        }
+        p {
+            color: #555;
+        }
+        button {
+            background: #ff7e5f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #e76b52;
+        }
+        .hidden {
+            display: none;
+        }
+        .color-box {
+            width: 100px;
+            height: 100px;
+            background: #ff7e5f;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>환영합니다!</h1>
+        <p>이것은 다양한 인터랙션이 포함된 웹페이지입니다.</p>
+        <button onclick="toggleText()">텍스트 토글</button>
+        <button onclick="changeColor()">색상 변경</button>
+        <button onclick="showAlert()">알림</button>
+        <p id="toggleText" class="hidden">이 텍스트가 나타났다 사라집니다!</p>
+        <div class="color-box" id="colorBox"></div>
+    </div>
+
+    <script>
+        function toggleText() {
+            var text = document.getElementById("toggleText");
+            if (text.classList.contains("hidden")) {
+                text.classList.remove("hidden");
+            } else {
+                text.classList.add("hidden");
+            }
+        }
+
+        function changeColor() {
+            var box = document.getElementById("colorBox");
+            var colors = ['#ff7e5f', '#feb47b', '#6a89cc', '#82ccdd', '#b8e994'];
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            box.style.background = randomColor;
+        }
+
+        function showAlert() {
+            alert("버튼이 클릭되었습니다!");
+        }
+    </script>
+</body>
+</html>
